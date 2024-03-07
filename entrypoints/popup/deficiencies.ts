@@ -17,7 +17,7 @@ export enum Deficiencies {
 
 export const VISUAL_DEFICIENCIES: Deficiency[] = [
   {
-    label: 'Trichromacy (normal)',
+    label: 'Trichromacy – Normal',
     value: Deficiencies.Trichromacy
   },
   {

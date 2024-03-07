@@ -4,6 +4,9 @@ import react from '@vitejs/plugin-react';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   vite: () => ({
-    plugins: [react()],
+    plugins: [react()]
   }),
+  manifest: {
+    permissions: ['activeTab', 'scripting', 'storage', 'tabs']
+  }
 });
