@@ -1,9 +1,14 @@
 {
-  "name": "wxt-starter",
-  "description": "manifest.json description",
+  "name": "colora11y",
+  "description": "Colorblindness simulation",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azelky/colora11y.git"
+  },
+  "homepage": "https://github.com/azelky/colora11y",
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",
