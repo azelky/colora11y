@@ -1,33 +1,30 @@
 import { useState } from 'react';
-import reactLogo from '@/assets/react.svg';
-import wxtLogo from '/wxt.svg';
 import './App.css';
+import { Deficiencies, Deficiency, VISUAL_DEFICIENCIES } from './deficiencies';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [activeFilter, setActiveFilter] = useState<Deficiencies>(Deficiencies.Trichromacy);
+
+  function handleActivateDeficiency(deficiency: Deficiencies) {
+    setActiveFilter(deficiency);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://wxt.dev" target="_blank">
-          <img src={wxtLogo} className="logo" alt="WXT logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>WXT + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the WXT and React logos to learn more
-      </p>
+      <h1>Colorblindness simulation</h1>
+
+      <ul className="deficiencies">
+        {VISUAL_DEFICIENCIES.map((deficiency: Deficiency) => (
+          <li key={deficiency.value}>
+            <button
+              onClick={() => handleActivateDeficiency(deficiency.value)}
+              className={`visual-deficiency${activeFilter === deficiency.value ? ' is-active' : ''}`}
+              data-type={deficiency.value}>
+              {deficiency.label}
+            </button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
